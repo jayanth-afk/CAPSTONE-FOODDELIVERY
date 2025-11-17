@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnackSphere - Order Food Online</title>
+    
+    <style>
+        /* --- CSS Variables (Our Color Theme) --- */
+        :root {
+            --primary-color: #00b894; /* A modern teal/green */
+            --dark-text: #333;        /* For headings */
+            --light-text: #777;       /* For subtext */
+            --bg-light: #f9f9f9;      /* Page background */
+            --card-bg: #ffffff;       /* Card background */
+            --shadow: 0 4px 12px rgba(0,0,0,0.05); /* Soft shadow for cards */
+        }
+
+        /* --- Basic Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-light); /* Use light bg */
+            color: var(--dark-text);
+        }
+
+        /* --- 1. Navigation Bar Styles --- */
+        header {
+            background-color: var(--card-bg); /* White background */
+            border-bottom: 1px solid #eee;
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow); /* Add subtle shadow */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color); /* Use primary color */
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--light-text);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color); /* Hover effect */
+        }
+
+        /* --- 2. Hero Section Styles --- */
+        .hero {
+            /* Light green background, complementary to primary color */
+            background-color: #e6f7f5; 
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .search-bar input {
+            padding: 0.8rem;
+            font-size: 1rem;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-bar button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            background-color: var(--primary-color); /* Use primary color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Hover effect */
+        }
+
+        .search-bar button:hover {
+            background-color: #00a884; /* Slightly darker on hover */
+        }
+
+        /* --- 3. Categories Section --- */
+        .categories, .top-restaurants {
+            padding: 2rem;
+            /* Center content on page */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .categories h2, .top-restaurants h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .category-grid {
+            display: flex;
+            gap: 1.5rem; /* Space between cards */
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            padding: 1.5rem 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px); /* Lifts card on hover */
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+
+        /* --- 4. Top Restaurants Section --- */
+        .restaurant-row {
+            display: flex; /* This is the key! */
+            gap: 1.5rem; /* Adds space between the cards */
+            justify-content: center; /* Centers the cards in the row */
+            flex-wrap: wrap; /* Allows cards to wrap to the next line on small screens */
+        }
+
+        .restaurant-card {
+            background-color: var(--card-bg);
+            width: 300px; /* Give all cards a fixed width */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: var(--shadow); /* Use our shadow variable */
+            overflow: hidden; /* Keeps the image corners rounded */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect */
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-5px); /* Lifts card on hover */
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* Stronger shadow */
+        }
+
+        .restaurant-card img {
+            width: 100%; /* Image fills the card width */
+            height: 200px; /* Gives all images a uniform height */
+            object-fit: cover; /* Prevents images from stretching/squashing */
+            display: block;
+        }
+
+        .restaurant-card h3 {
+            font-size: 1.25rem;
+            color: var(--dark-text);
+            /* Top, Right/Left, Bottom */
+            margin: 0.75rem 1rem 0.25rem; 
+        }
+
+        .restaurant-card p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            /* Top, Right/Left, Bottom */
+            margin: 0 1rem 0.75rem; 
+        }
+
+
+        /* --- 5. Footer Styles --- */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        footer ul li {
+            margin: 0 1rem;
+        }
+
+        footer ul li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        footer ul li a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">SnackSphere</div>
+            <ul>
+                <li><a href="login.html">Sign In</a></li>
+                <li><a href="login.html">Sign Up</a></li>
+                <li><a href="checkout.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Food you love, delivered to you.</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Enter your delivery address">
+                <button>Find Food</button>
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2>Categories</h2>
+            <div class="category-grid">
+                <div class="category-card">Pizza</div>
+                <div class="category-card">Burgers</div>
+                <div class="category-card">Sushi</div>
+                <div class="category-card">Indian</div>
+            </div>
+        </section>
+
+        <section class="top-restaurants">
+            <h2>Top Restaurants</h2>
+            <div classm="restaurant-row">
+                <div class="restaurant-card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Pizza+Palace" alt="Pizza Palace">
+                    <h3>Pizza Palace</h3>
+                    <p>Rating: 4.5</p>
+                    <p>30-45 min</p>
+                </div>
+                
+                <div class="restaurant-card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Burger+Barn" alt="Burger Barn">
+                    <h3>Burger Barn</h3>
+                    <p>Rating: 4.2</p>
+                    <p>25-40 min</p>
+                </div>
+
+                <div class="restaurant-card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Sushi+Spot" alt="Sushi Spot">
+                    <h3>Sushi Spot</h3>
+                    <p>Rating: 4.7</p>
+                    <p>40-55 min</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SnackSphere. All rights reserved.</p>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>
