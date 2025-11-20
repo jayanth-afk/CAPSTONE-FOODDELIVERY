@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SnackSphere - Checkout</title>
+  <style>
+    /* simple student-style but neat UI */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7f6;
+      margin: 0;
+      color: #222;
+      padding: 20px;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .cart, .summary {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .cart { flex: 2; }
+    .summary { flex: 1; min-width: 260px; }
+
+    h1 { margin: 0 0 8px; color: #00b894; font-size: 20px; }
+    h2 { margin: 0 0 10px; font-size: 16px; }
+
+    .item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: center;
+    }
+
+    .item:last-child { border-bottom: none; }
+
+    .item img {
+      width: 88px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .info { flex: 1; }
+    .info .title { font-size: 15px; margin: 0 0 6px; }
+    .info .meta { color: #666; font-size: 13px; margin: 0; }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 140px;
+      justify-content: flex-end;
+    }
+
+    .controls button {
+      padding: 6px 8px;
+      border: 1px solid #ddd;
+      background: #fafafa;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .controls input {
+      width: 44px;
+      text-align: center;
+      padding: 6px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    .remove {
+      background: transparent;
+      border: none;
+      color: #c0392b;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .summary .row { display:flex; justify-content:space-between; margin:8px 0; font-size:14px; }
+    .summary .total { font-weight:700; font-size:16px; margin-top:10px; }
+
+    .coupon { display:flex; gap:8px; margin-top:8px; }
+    .coupon input { flex:1; padding:8px; border:1px solid #ddd; border-radius:6px; }
+    .coupon button { padding:8px 10px; background:#00b894; color:#fff; border:none; border-radius:6px; cursor:pointer; }
+
+    .btn-wide {
+      width:100%;
+      padding:10px;
+      margin-top:12px;
+      background:#00b894;
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .small { font-size:13px; color:#666; }
+
+    @media (max-width:860px) {
+      .wrap { flex-direction: column; padding: 12px; }
+      .summary { order: 2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="cart">
+      <h1>Checkout</h1>
+      <p class="small">Check your items, change quantities and place the order.</p>
+
+      <div id="cartItems">
+        <!-- sample items with prices in rupees -->
+        <!-- subtotal = 89 + (65 * 2) = 219 -->
+        <div class="item" data-price="89">
+          <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emElMjBtYXJnaGVyaXRhfGVufDB8fDB8fHww" alt="Margherita">
+          <div class="info">
+            <p class="title">Margherita — Pizza Palace</p>
+            <p class="meta">Small • Extra cheese</p>
+            <p class="meta" style="margin-top:6px;">Price: ₹<span class="price">89.00</span></p>
+          </div>
+          <div class="controls">
+            <button class="dec">-</button>
+            <input class="qty" type="number" min="1" value="1" />
+            <button class="inc">+</button>
+            <button class="remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="item" data-price="65">
+          <img src="https://c4.wallpaperflare.com/wallpaper/143/223/715/food-burgers-hamburgers-fast-food-wallpaper-preview.jpg" alt="Classic Burger">
+          <div class="info">
+            <p class="title">Classic Burger — Burger Barn</p>
+            <p class="meta">With fries</p>
+            <p class="meta" style="margin-top:6px;">Price: ₹<span class="price">65.00</span></p>
+          </div>
+          <div class="controls">
+            <button class="dec">-</button>
+            <input class="qty" type="number" min="1" value="2" />
+            <button class="inc">+</button>
+            <button class="remove">Remove</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:12px;">
+        <button id="clear" style="padding:8px 12px; border:1px solid #ddd; background:#fff; border-radius:6px; cursor:pointer;">Clear cart</button>
+      </div>
+    </main>
+
+    <aside class="summary">
+      <h2>Order Summary</h2>
+      <div class="row"><span>Items</span><span>₹<span id="sub">219.00</span></span></div>
+      <div class="row"><span>Delivery</span><span>₹<span id="delivery">30.00</span></span></div>
+      <div class="row"><span>Discount</span><span>-₹<span id="disc">0.00</span></span></div>
+      <div class="row total"><span>Total</span><span>₹<span id="total">249.00</span></span></div>
+
+      <div class="coupon">
+        <input id="coupon" placeholder="Enter coupon code" />
+        <button id="apply">Apply</button>
+      </div>
+
+      <button id="place" class="btn-wide">Place Order</button>
+    </aside>
+  </div>
