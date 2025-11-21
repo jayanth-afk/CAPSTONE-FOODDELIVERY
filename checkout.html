@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SnackSphere - Checkout</title>
-  <link rel="'stylesheet" href="check.css">
+  <link rel="stylesheet" href="checkout.css">
 </head>
 <body>
   <div class="wrap">
@@ -13,8 +13,6 @@
       <p class="small">Check your items, change quantities and place the order.</p>
 
       <div id="cartItems">
-        <!-- sample items with prices in rupees -->
-        <!-- subtotal = 89 + (65 * 2) = 219 -->
         <div class="item" data-price="89">
           <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emElMjBtYXJnaGVyaXRhfGVufDB8fDB8fHww" alt="Margherita">
           <div class="info">
@@ -23,9 +21,9 @@
             <p class="meta" style="margin-top:6px;">Price: ₹<span class="price">89.00</span></p>
           </div>
           <div class="controls">
-            <button class="dec">-</button>
+            <button class="dec" aria-label="decrease quantity">-</button>
             <input class="qty" type="number" min="1" value="1" />
-            <button class="inc">+</button>
+            <button class="inc" aria-label="increase quantity">+</button>
             <button class="remove">Remove</button>
           </div>
         </div>
@@ -38,9 +36,9 @@
             <p class="meta" style="margin-top:6px;">Price: ₹<span class="price">65.00</span></p>
           </div>
           <div class="controls">
-            <button class="dec">-</button>
+            <button class="dec" aria-label="decrease quantity">-</button>
             <input class="qty" type="number" min="1" value="2" />
-            <button class="inc">+</button>
+            <button class="inc" aria-label="increase quantity">+</button>
             <button class="remove">Remove</button>
           </div>
         </div>
@@ -66,3 +64,5 @@
       <button id="place" class="btn-wide">Place Order</button>
     </aside>
   </div>
+</body>
+</html>
