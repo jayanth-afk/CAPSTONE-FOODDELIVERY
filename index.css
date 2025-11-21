@@ -1,0 +1,118 @@
+
+        * {
+            --primary-color: #00b894;
+            --dark-text: #333;
+            --light-text: #777;
+            --bg-light: #f9f9f9;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            color: var(--dark-text);
+        }
+
+        .logo-setup {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 0.4rem 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        .logo-setup a { color: var(--primary-color); text-decoration: none; font-weight: bold; margin-left: 0.5rem; }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid #eee;
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        #nav-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul { list-style-type: none; display: flex; align-items: center; }
+        nav ul li { margin-left: 1.5rem; }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--light-text);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover { color: var(--primary-color); }
+
+        .hero { background-color: #e6f7f5; padding: 4rem 2rem; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--dark-text); }
+
+        .search-bar input {
+            padding: 0.8rem; font-size: 1rem; width: 300px; border: 1px solid #ccc; border-radius: 5px;
+        }
+        .search-bar button {
+            padding: 0.8rem 1.5rem; font-size: 1rem; background-color: var(--primary-color);
+            color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;
+        }
+        .search-bar button:hover { background-color: #00a884; }
+
+        .categories, .top-restaurants { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .categories h2, .top-restaurants h2 { font-size: 2rem; margin-bottom: 1.5rem; text-align: center; }
+
+        .category-grid {
+            display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+        }
+        .category-card {
+            background: var(--card-bg); padding: 1.5rem 2.5rem; border-radius: 8px; box-shadow: var(--shadow);
+            font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .category-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+
+        .restaurant-row {
+            display: flex; gap: 1.5rem; justify-content: center; flex-wrap: nowrap;
+            overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; align-items: flex-start;
+        }
+        .restaurant-card {
+            background-color: var(--card-bg); flex: 0 0 300px; border-radius: 8px; box-shadow: var(--shadow);
+            overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .restaurant-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .restaurant-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .restaurant-card h3 { font-size: 1.25rem; color: var(--dark-text); margin: 0.75rem 1rem 0.25rem; }
+        .restaurant-card p { color: var(--light-text); font-size: 0.9rem; margin: 0 1rem 0.75rem; }
+
+        footer { background-color: #333; color: white; text-align: center; padding: 2rem; margin-top: 2rem; }
+        footer ul { list-style-type: none; display: flex; justify-content: center; margin-top: 1rem; }
+        footer ul li { margin: 0 1rem; }
+        footer ul li a { text-decoration: none; color: white; transition: color 0.3s ease; }
+        footer ul li a:hover { color: var(--primary-color); }
+
+        @media (max-width: 520px) {
+            .search-bar input { width: 180px; }
+            .restaurant-card { flex: 0 0 260px; }
+        }
