@@ -77,35 +77,58 @@ h2 {
 .controls {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-width: 140px;
+  gap: 6px;
+  flex-shrink: 0;
   justify-content: flex-end;
 }
 
 .controls button {
-  padding: 6px 8px;
+  padding: 8px 12px;
   border: 1px solid #ddd;
-  background: #fafafa;
-  border-radius: 6px;
+  background: #fff;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 32px;
+}
+
+.controls button:hover {
+  background: #f0f0f0;
+}
+
+.controls button.dec,
+.controls button.inc {
+  background: #00b894;
+  color: #fff;
+  border: none;
+}
+
+.controls button.dec:hover,
+.controls button.inc:hover {
+  background: #00a37d;
 }
 
 .controls input {
-  min-width: 44px;
-  width: 44px;
+  width: 50px;
   box-sizing: border-box;
   text-align: center;
-  padding: 6px;
+  padding: 8px;
   border: 1px solid #ddd;
-  border-radius: 6px;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
-.remove {
-  background: transparent;
-  border: none;
+.controls button.remove {
+  background: #fff;
+  border: 1px solid #ddd;
   color: #c0392b;
   cursor: pointer;
   font-size: 13px;
+}
+
+.controls button.remove:hover {
+  background: #ffe8e0;
 }
 
 .summary .row {
