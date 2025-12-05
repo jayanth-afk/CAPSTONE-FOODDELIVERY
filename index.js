@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // mobile menu toggle
+  var menuToggle = document.getElementById('menuToggle');
+  var navMenu = document.getElementById('navMenu');
+  
+  if (menuToggle) {
+    menuToggle.onclick = function() {
+      if (navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+      } else {
+        navMenu.classList.add('active');
+      }
+    };
+  }
+  
+  // close menu when link is clicked
+  var navLinks = document.querySelectorAll('.nav-menu a');
+  navLinks.forEach(function(link) {
+    link.onclick = function() {
+      if (navMenu) {
+        navMenu.classList.remove('active');
+      }
+    };
+  });
+
   const searchBtn = document.querySelector('.search-bar button');
   const searchInput = document.querySelector('.search-bar input');
   

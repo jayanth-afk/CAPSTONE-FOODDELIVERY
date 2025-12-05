@@ -59,7 +59,21 @@
             color: var(--primary-color);
         }
 
-        nav ul { list-style-type: none; display: flex; align-items: center; }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+        }
+
         nav ul li { margin-left: 1.5rem; }
         nav ul li a {
             text-decoration: none;
@@ -142,7 +156,66 @@
         footer ul li a { text-decoration: none; color: white; transition: color 0.3s ease; }
         footer ul li a:hover { color: var(--primary-color); }
 
+        @media (max-width: 768px) {
+            header { padding: 0.8rem 1rem; }
+            .menu-toggle { display: block; }
+            .nav-menu { 
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active { display: flex; }
+            .nav-menu li { margin-left: 0; }
+            
+            .hero { min-height: 300px; padding: 2rem 1rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .search-bar input { width: 220px; }
+            
+            .categories, .top-restaurants { padding: 1.5rem; }
+            .categories h2, .top-restaurants h2 { font-size: 1.5rem; }
+            
+            .category-grid { gap: 1rem; }
+            .category-card { padding: 1rem 1.5rem; font-size: 0.95rem; }
+            
+            .restaurant-card { flex: 0 0 280px; }
+            .restaurant-card img { height: 160px; }
+            .restaurant-card h3 { font-size: 1rem; margin: 0.5rem 0.75rem 0.25rem; }
+        }
+
         @media (max-width: 520px) {
-            .search-bar input { width: 180px; }
-            .restaurant-card { flex: 0 0 260px; }
+            header { padding: 0.6rem 0.8rem; }
+            
+            .logo { font-size: 1.2rem; }
+            #nav-logo { width: 32px; height: 32px; }
+            
+            .hero { min-height: 250px; padding: 1.5rem 1rem; }
+            .hero h1 { font-size: 1.5rem; }
+            .hero-content { padding: 1.5rem; }
+            
+            .search-bar { display: flex; flex-direction: column; gap: 0.8rem; }
+            .search-bar input { width: 100%; }
+            .search-bar button { width: 100%; }
+            
+            .categories, .top-restaurants { padding: 1rem; }
+            .categories h2, .top-restaurants h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+            
+            .category-grid { gap: 0.8rem; }
+            .category-card { padding: 0.8rem 1.2rem; font-size: 0.9rem; }
+            
+            .restaurant-row { gap: 1rem; padding-bottom: 6px; }
+            .restaurant-card { flex: 0 0 240px; }
+            .restaurant-card img { height: 140px; }
+            .restaurant-card h3 { font-size: 0.95rem; margin: 0.5rem 0.6rem 0.2rem; }
+            .restaurant-card p { font-size: 0.8rem; margin: 0 0.6rem 0.5rem; }
+            
+            footer { padding: 1.5rem 1rem; }
+            footer ul { flex-wrap: wrap; gap: 0.8rem; }
+            footer ul li { margin: 0; }
         }

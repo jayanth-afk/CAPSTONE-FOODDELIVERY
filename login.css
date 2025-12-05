@@ -54,6 +54,21 @@
     .foot { text-align: center; margin-top: 10px; font-size: 13px; color: #666; }
     .foot a { color: #00b894; text-decoration: none; margin-left: 6px; }
 
-    @media (max-width: 400px) {
-      .card { width: 92%; padding: 16px; }
+    @media (max-width: 768px) {
+      body { padding: 1rem; }
+      .card { width: 100%; max-width: 360px; padding: 1.5rem; }
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 0.5rem; min-height: auto; }
+      .card { width: 100%; padding: 1.2rem; }
+      .brand h1 { font-size: 1.5rem; }
+      .brand p { font-size: 12px; }
+      
+      input[type="email"], input[type="password"] { padding: 8px; font-size: 16px; }
+      .btn { padding: 12px; font-size: 15px; }
+      
+      label { font-size: 12px; }
+      .row { font-size: 12px; }
+      .foot { font-size: 12px; }
     }

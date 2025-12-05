@@ -182,11 +182,47 @@ h2 {
 }
 
 @media (max-width: 860px) {
+  body { padding: 12px; }
   .wrap {
     flex-direction: column;
-    padding: 12px;
+    gap: 12px;
   }
+  .cart { flex: 1; }
   .summary {
     order: 2;
+    width: 100%;
   }
+  
+  .menu-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  
+  .item { gap: 10px; padding: 10px 0; flex-wrap: wrap; }
+  .item img { width: 80px; height: 56px; }
+  .info { min-width: 200px; }
+  .controls { flex-wrap: wrap; }
+}
+
+@media (max-width: 600px) {
+  body { padding: 8px; }
+  .wrap { gap: 8px; }
+  
+  h1 { font-size: 18px; margin: 0 0 6px; }
+  h2 { font-size: 15px; margin: 0 0 8px; }
+  
+  .menu-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+  .food-card img { height: 120px; }
+  .food-name { font-size: 13px; }
+  .food-desc { font-size: 11px; }
+  .food-price { font-size: 14px; }
+  .food-add-btn { padding: 4px 10px; font-size: 12px; }
+  
+  .item { flex-direction: column; align-items: flex-start; }
+  .item img { width: 100%; height: auto; max-height: 150px; }
+  .controls { width: 100%; justify-content: space-between; margin-top: 8px; }
+  
+  .summary .row { font-size: 13px; padding: 6px 0; }
+  .coupon { flex-direction: column; }
+  .coupon input, .coupon button { width: 100%; }
+  
+  .info .title { font-size: 14px; }
+  .info .meta { font-size: 12px; }
 }
