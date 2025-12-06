@@ -1,6 +1,3 @@
-// burger-barn.js - burger ordering system with dark mode
-
-// dark mode toggle
 var darkModeToggle = document.getElementById('darkModeToggle');
 var isDarkMode = localStorage.getItem('darkMode') === 'true';
 
@@ -31,17 +28,16 @@ var placeBtn = document.getElementById('place');
 var deliveryFee = 30.00;
 var discount = 0;
 
-// menu items data - only burgers
 var menuItems = [
   { id: 4, name: 'Classic Burger', desc: 'Chicken, Lettuce, Tomato', price: 65, category: 'burger', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?fm=jpg&q=60&w=300' },
   { id: 5, name: 'Double Cheese Burger', desc: 'Double Chicken, Cheddar', price: 85, category: 'burger', img: 'https://stordfkenticomedia.blob.core.windows.net/df-us/rms/media/recipemediafiles/recipe%20images%20and%20files/retail/desktop%20(600x600)/2023.nov/2023_retail_double-stack-cheeseburger_600x600.jpg?ext=.jpg' },
   { id: 6, name: 'Spicy Burger', desc: 'Chicken, Jalapeño, Mayo', price: 75, category: 'burger', img: 'https://www.gardengourmet.com/sites/default/files/recipes/aeead5804e79ff6fb98b2039619c5230_200828_MEDIAMONKS_GG_Spicytarian.jpg' }
 ];
 
-// cart storage
+
 var cart = [];
 
-// render menu on page load
+
 function initMenu() {
   var burgerMenu = document.getElementById('burgerMenu');
   renderMenuItems(burgerMenu, menuItems);

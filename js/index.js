@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // dark mode toggle
+
   var darkModeToggle = document.getElementById('darkModeToggle');
   var isDarkMode = localStorage.getItem('darkMode') === 'true';
   
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   }
   
-  // mobile menu toggle
+
   var menuToggle = document.getElementById('menuToggle');
   var navMenu = document.getElementById('navMenu');
   
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   }
   
-  // close menu when link is clicked
+
   var navLinks = document.querySelectorAll('.nav-menu a');
   navLinks.forEach(function(link) {
     link.onclick = function() {

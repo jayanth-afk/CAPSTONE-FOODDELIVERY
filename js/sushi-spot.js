@@ -1,6 +1,4 @@
-// sushi-spot.js - sushi ordering system with dark mode
 
-// dark mode toggle
 var darkModeToggle = document.getElementById('darkModeToggle');
 var isDarkMode = localStorage.getItem('darkMode') === 'true';
 
@@ -31,17 +29,17 @@ var placeBtn = document.getElementById('place');
 var deliveryFee = 30.00;
 var discount = 0;
 
-// menu items data - only sushi
+
 var menuItems = [
   { id: 7, name: 'California Roll', desc: '8 pieces', price: 120, category: 'sushi', img: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?fm=jpg&q=60&w=300' },
   { id: 8, name: 'Spicy Tuna Roll', desc: '8 pieces', price: 140, category: 'sushi', img: 'https://images.unsplash.com/photo-1553621042-f6e147245754?fm=jpg&q=60&w=300' },
   { id: 9, name: 'Salmon Sashimi', desc: '6 pieces', price: 150, category: 'sushi', img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?fm=jpg&q=60&w=300' }
 ];
 
-// cart storage
+
 var cart = [];
 
-// render menu on page load
+
 function initMenu() {
   var sushiMenu = document.getElementById('sushiMenu');
   renderMenuItems(sushiMenu, menuItems);

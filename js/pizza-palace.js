@@ -1,6 +1,4 @@
-// pizza-palace.js - pizza ordering system with dark mode
 
-// dark mode toggle
 var darkModeToggle = document.getElementById('darkModeToggle');
 var isDarkMode = localStorage.getItem('darkMode') === 'true';
 
@@ -31,17 +29,16 @@ var placeBtn = document.getElementById('place');
 var deliveryFee = 30.00;
 var discount = 0;
 
-// menu items data - only pizzas
 var menuItems = [
   { id: 1, name: 'Margherita', desc: 'Tomato, Mozzarella', price: 89, category: 'pizza', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?fm=jpg&q=60&w=300' },
   { id: 2, name: 'Pepperoni', desc: 'Cheese, Pepperoni', price: 99, category: 'pizza', img: 'https://www.allrecipes.com/thmb/VlxoJt8KV9sTgRn91bCyNS-2MsU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/What-is-Pepperoni-4x3-b45a1d46776a49d7bc24618aa1bd3f69.jpg' },
   { id: 3, name: 'Veggie Supreme', desc: 'Mixed Vegetables', price: 79, category: 'pizza', img: 'https://www.thursdaynightpizza.com/wp-content/uploads/2022/06/veggie-pizza-side-view-out-of-oven-720x480.png' }
 ];
 
-// cart storage
+
 var cart = [];
 
-// render menu on page load
+
 function initMenu() {
   var pizzaMenu = document.getElementById('pizzaMenu');
   renderMenuItems(pizzaMenu, menuItems);

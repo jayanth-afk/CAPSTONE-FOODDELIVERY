@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // dark mode toggle
+
   var darkModeToggle = document.getElementById('darkModeToggle');
   var isDarkMode = localStorage.getItem('darkMode') === 'true';
   
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   }
 
-  // login.js - simple login form handler
+
   var loginForm = document.getElementById('loginForm');
   var emailInput = document.getElementById('email');
   var passwordInput = document.getElementById('password');
@@ -42,8 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Logged in for: ' + email);
       }
       
-      // In real app, send to server
-      // window.location.href = 'index.html';
+
     };
   }
 });

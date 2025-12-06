@@ -1,6 +1,4 @@
-// checkout.js - food ordering system with menu and cart
 
-// dark mode toggle
 var darkModeToggle = document.getElementById('darkModeToggle');
 var isDarkMode = localStorage.getItem('darkMode') === 'true';
 
