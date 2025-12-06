@@ -259,7 +259,6 @@ applyBtn.onclick = function() {
     alert('Enter a coupon code.');
     return;
   }
-  alert('Coupon validation runs on server in the full app.');
 };
 
 // clear cart
