@@ -93,11 +93,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  const restaurantCards = document.querySelectorAll('.restaurant-card');
-  restaurantCards.forEach(card => {
-    card.addEventListener('click', function() {
-      const name = this.querySelector('h3').textContent;
-      alert('Viewing restaurant: ' + name);
-    });
-  });
 });

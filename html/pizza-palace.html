@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pizza Palace - SnackSphere</title>
+  <link rel="stylesheet" href="../css/pizza-palace.css">
+  <style>
+    .menu-section { margin-bottom: 24px; }
+    .menu-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #222; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+    .food-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 8px; overflow: hidden; cursor: pointer; transition: box-shadow 0.2s; }
+    .food-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    .food-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .food-info { padding: 12px; }
+    .food-name { font-size: 14px; font-weight: 600; color: #222; margin: 0 0 6px; }
+    .food-desc { font-size: 12px; color: #999; margin: 0 0 8px; }
+    .food-footer { display: flex; justify-content: space-between; align-items: center; }
+    .food-price { font-weight: 700; color: #00b894; font-size: 16px; }
+    .food-add-btn { background: #00b894; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; }
+    .food-add-btn:active { transform: scale(0.95); }
+
+    body.dark-mode .menu-title { color: #e0e0e0; }
+    body.dark-mode .food-card { background: #2d2d2d; border-color: #444; }
+    body.dark-mode .food-name { color: #e0e0e0; }
+    body.dark-mode .food-desc { color: #b0b0b0; }
+  </style>
+</head>
+<body>
+  <button class="dark-mode-toggle" id="darkModeToggle" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">🌙</button>
+  
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="index.html">
+          <div class="logo">SnackSphere</div>
+        </a>
+      </div>
+      <div class="restaurant-name">🍕 Pizza Palace</div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="checkout.html" style="text-decoration: none; color: #00b894; font-weight: bold;">Cart</a>
+        <a href="index.html" style="text-decoration: none; color: #00b894; font-weight: bold;">Back</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <main class="cart">
+      <div class="restaurant-header">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/072/422/805/small/hot-pizza-slice-with-melted-cheese-lifted-from-pizza-pie-in-restaurant-photo.jpeg" alt="Pizza Palace">
+        <div class="restaurant-info">
+          <h1>Pizza Palace</h1>
+          <p class="rating">⭐ 4.5 Rating | 30-45 min delivery</p>
+          <p class="description">Authentic pizzas made with fresh ingredients and traditional recipes.</p>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-title" style="color: #ff0000;">🍕 Pizzas</div>
+        <div class="menu-grid" id="pizzaMenu"></div>
+      </div>
+
+      <h2 style="margin-top:24px; font-size:18px;">Your Order</h2>
+      <div id="cartItems">
+        <!-- Cart items will appear here -->
+      </div>
+
+      <div style="text-align:center; margin-top:12px;">
+        <button id="clear" style="padding:8px 12px; border:1px solid #ddd; background:#fff; border-radius:6px; cursor:pointer;">Clear cart</button>
+      </div>
+    </main>
+
+    <aside class="summary">
+      <h2>Order Summary</h2>
+      <div class="row"><span>Items</span><span>₹<span id="sub">0.00</span></span></div>
+      <div class="row"><span>Delivery</span><span>₹<span id="delivery">30.00</span></span></div>
+      <div class="row"><span>Discount</span><span>-₹<span id="disc">0.00</span></span></div>
+      <div class="row total"><span>Total</span><span>₹<span id="total">30.00</span></span></div>
+
+      <div class="coupon">
+        <input id="coupon" placeholder="Enter coupon code" />
+        <button id="apply">Apply</button>
+      </div>
+
+      <button id="place" class="btn-wide">Place Order</button>
+    </aside>
+  </div>
+
+  <script src="../js/pizza-palace.js"></script>
+</body>
+</html>
