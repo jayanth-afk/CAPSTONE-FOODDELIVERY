@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnackSphere - Order Food Online</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <script src="index.js"></script>
+    <script src="js/index.js"></script>
 
     <div class="logo-setup">
      
@@ -52,6 +52,7 @@
         <section class="categories">
             <h2>Categories</h2>
             <div class="category-grid">
+                <div class="category-card">All</div>
                 <div class="category-card">Pizza</div>
                 <div class="category-card">Burgers</div>
                 <div class="category-card">Sushi</div>
@@ -61,27 +62,30 @@
 
         <section class="top-restaurants">
             <h2>Top Restaurants</h2>
-            <div class="restaurant-row">
-                <div class="restaurant-card">
+            <div class="restaurant-row" id="restaurantRow">
+                <div class="restaurant-card" data-category="pizza">
                     <img src="https://static.vecteezy.com/system/resources/thumbnails/072/422/805/small/hot-pizza-slice-with-melted-cheese-lifted-from-pizza-pie-in-restaurant-photo.jpeg" alt="Pizza Palace">
                     <h3>Pizza Palace</h3>
                     <p>Rating: 4.5</p>
                     <p>30-45 min</p>
                 </div>
                 
-                <div class="restaurant-card">
+                <div class="restaurant-card" data-category="burgers">
                     <img src="https://img.freepik.com/free-photo/delicious-cheeseburger-with-fresh-toppings_9975-24757.jpg?semt=ais_incoming&w=740&q=80" alt="Burger Barn">
                     <h3>Burger Barn</h3>
                     <p>Rating: 4.2</p>
                     <p>25-40 min</p>
                 </div>
 
-                <div class="restaurant-card">
+                <div class="restaurant-card" data-category="sushi">
                     <img src="https://png.pngtree.com/background/20250105/original/pngtree-japanese-food-and-top-view-concept-different-kinds-of-sushi-on-picture-image_15463351.jpg" alt="Sushi Spot">
                     <h3>Sushi Spot</h3>
                     <p>Rating: 4.7</p>
                     <p>40-55 min</p>
                 </div>
+            </div>
+            <div id="noRestaurantMsg" style="display: none; text-align: center; padding: 2rem; font-size: 1.1rem; color: #666;">
+                No indian restaurant available at your location
             </div>
         </section>
     </main>

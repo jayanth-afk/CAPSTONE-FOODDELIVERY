@@ -58,8 +58,38 @@ document.addEventListener('DOMContentLoaded', function() {
   const categoryCards = document.querySelectorAll('.category-card');
   categoryCards.forEach(card => {
     card.addEventListener('click', function() {
-      const category = this.textContent;
-      alert('You selected: ' + category);
+      const category = this.textContent.trim().toLowerCase();
+      const restaurantRow = document.getElementById('restaurantRow');
+      const noRestaurantMsg = document.getElementById('noRestaurantMsg');
+      const restaurantCards = document.querySelectorAll('.restaurant-card');
+      
+      let hasMatching = false;
+      
+      if (category === 'all') {
+        restaurantCards.forEach(restaurantCard => {
+          restaurantCard.style.display = 'block';
+        });
+        restaurantRow.style.display = 'flex';
+        noRestaurantMsg.style.display = 'none';
+      } else {
+        restaurantCards.forEach(restaurantCard => {
+          const restaurantCategory = restaurantCard.getAttribute('data-category');
+          if (restaurantCategory === category) {
+            restaurantCard.style.display = 'block';
+            hasMatching = true;
+          } else {
+            restaurantCard.style.display = 'none';
+          }
+        });
+        
+        if (category === 'indian') {
+          restaurantRow.style.display = 'none';
+          noRestaurantMsg.style.display = 'block';
+        } else if (hasMatching) {
+          restaurantRow.style.display = 'flex';
+          noRestaurantMsg.style.display = 'none';
+        }
+      }
     });
   });
 
