@@ -5,6 +5,12 @@ body {
   color: #222;
   padding: 20px;
   box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background: #1a1a1a;
+  color: #e0e0e0;
 }
 
 .wrap {
@@ -22,6 +28,14 @@ body {
   border-radius: 8px;
   padding: 14px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .cart,
+body.dark-mode .summary {
+  background: #2d2d2d;
+  border-color: #444;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 .cart {
@@ -117,6 +131,13 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .controls input {
+  background: #3a3a3a;
+  border-color: #555;
+  color: #e0e0e0;
 }
 
 .controls button.remove {
@@ -154,6 +175,13 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 6px;
   box-sizing: border-box;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .coupon input {
+  background: #3a3a3a;
+  border-color: #555;
+  color: #e0e0e0;
 }
 .coupon button {
   padding: 8px 10px;
@@ -225,4 +253,16 @@ h2 {
   
   .info .title { font-size: 14px; }
   .info .meta { font-size: 12px; }
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.2);
 }

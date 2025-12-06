@@ -7,6 +7,12 @@
       justify-content: center;
       min-height: 100vh;
       color: #222;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background: #1a1a1a;
+      color: #e0e0e0;
     }
 
     .card {
@@ -16,14 +22,25 @@
       border: 1px solid #e6e6e6;
       border-radius: 8px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    body.dark-mode .card {
+      background: #2d2d2d;
+      border-color: #444;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     }
 
     .brand { text-align: center; margin-bottom: 12px; }
     .brand h1 { color: #00b894; font-size: 20px; margin: 0; }
     .brand p { margin: 6px 0 0; font-size: 13px; color: #666; }
 
+    body.dark-mode .brand p { color: #aaa; }
+
     form { display: flex; flex-direction: column; gap: 10px; }
-    label { font-size: 13px; color: #333; display: block; margin-bottom: 6px; }
+    label { font-size: 13px; color: #333; display: block; margin-bottom: 6px; transition: color 0.3s; }
+    
+    body.dark-mode label { color: #b0b0b0; }
     input[type="email"], input[type="password"] {
       padding: 10px;
       border: 1px solid #dcdcdc;
@@ -31,6 +48,14 @@
       font-size: 14px;
       width: 100%;
       box-sizing: border-box;
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode input[type="email"],
+    body.dark-mode input[type="password"] {
+      background: #3a3a3a;
+      border-color: #555;
+      color: #e0e0e0;
     }
 
     .row {
@@ -39,7 +64,10 @@
       align-items: center;
       font-size: 13px;
       color: #666;
+      transition: color 0.3s;
     }
+    
+    body.dark-mode .row { color: #b0b0b0; }
     .btn {
       background: #00b894;
       color: #fff;
@@ -51,8 +79,22 @@
     }
     .btn:active { transform: translateY(1px); }
 
-    .foot { text-align: center; margin-top: 10px; font-size: 13px; color: #666; }
+    .foot { text-align: center; margin-top: 10px; font-size: 13px; color: #666; transition: color 0.3s; }
     .foot a { color: #00b894; text-decoration: none; margin-left: 6px; }
+    
+    body.dark-mode .foot { color: #b0b0b0; }
+
+    .dark-mode-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .dark-mode-toggle:hover {
+      transform: scale(1.2);
+    }
 
     @media (max-width: 768px) {
       body { padding: 1rem; }

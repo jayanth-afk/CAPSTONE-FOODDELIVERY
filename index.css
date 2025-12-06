@@ -8,6 +8,14 @@
             --shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
+        body.dark-mode {
+            --dark-text: #e0e0e0;
+            --light-text: #b0b0b0;
+            --bg-light: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -15,6 +23,7 @@
             line-height: 1.6;
             background-color: var(--bg-light);
             color: var(--dark-text);
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .logo-setup {
@@ -23,20 +32,32 @@
             padding: 0.4rem 1rem;
             text-align: center;
             font-size: 0.95rem;
+            transition: background-color 0.3s, border-color 0.3s;
         }
         .logo-setup a { color: var(--primary-color); text-decoration: none; font-weight: bold; margin-left: 0.5rem; }
+
+        body.dark-mode .logo-setup {
+            background: #2d2d2d;
+            border-bottom-color: #444;
+        }
 
         header {
             background-color: var(--card-bg);
             border-bottom: 1px solid #eee;
             padding: 1rem 2rem;
             box-shadow: var(--shadow);
+            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode header {
+            border-bottom-color: #444;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1rem;
         }
 
         .logo-container {
@@ -68,20 +89,37 @@
             color: var(--primary-color);
         }
 
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.2);
+        }
+
         .nav-menu {
             list-style-type: none;
             display: flex;
             align-items: center;
+            gap: 1.5rem;
         }
 
-        nav ul li { margin-left: 1.5rem; }
-        nav ul li a {
+        .nav-menu li a {
             text-decoration: none;
             color: var(--light-text);
             font-weight: bold;
             transition: color 0.3s ease;
         }
-        nav ul li a:hover { color: var(--primary-color); }
+        .nav-menu li a:hover { color: var(--primary-color); }
 
         .hero { 
             position: relative;
@@ -110,6 +148,11 @@
             background: rgba(0, 0, 0, 0.4);
             padding: 2rem;
             border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode .hero-content {
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
@@ -134,6 +177,7 @@
         .category-card {
             background: var(--card-bg); padding: 1.5rem 2.5rem; border-radius: 8px; box-shadow: var(--shadow);
             font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+            color: var(--dark-text);
         }
         .category-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
 
@@ -150,7 +194,10 @@
         .restaurant-card h3 { font-size: 1.25rem; color: var(--dark-text); margin: 0.75rem 1rem 0.25rem; }
         .restaurant-card p { color: var(--light-text); font-size: 0.9rem; margin: 0 1rem 0.75rem; }
 
-        footer { background-color: #333; color: white; text-align: center; padding: 2rem; margin-top: 2rem; }
+        footer { background-color: #333; color: white; text-align: center; padding: 2rem; margin-top: 2rem; transition: background-color 0.3s; }
+        
+        body.dark-mode footer { background-color: #1a1a1a; border-top: 1px solid #444; }
+        
         footer ul { list-style-type: none; display: flex; justify-content: center; margin-top: 1rem; }
         footer ul li { margin: 0 1rem; }
         footer ul li a { text-decoration: none; color: white; transition: color 0.3s ease; }
@@ -165,11 +212,12 @@
                 top: 60px;
                 left: 0;
                 right: 0;
-                background: white;
+                background: var(--card-bg);
                 flex-direction: column;
                 padding: 1rem;
                 gap: 1rem;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                z-index: 999;
             }
             .nav-menu.active { display: flex; }
             .nav-menu li { margin-left: 0; }

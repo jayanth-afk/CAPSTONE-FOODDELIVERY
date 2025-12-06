@@ -1,5 +1,23 @@
 // checkout.js - food ordering system with menu and cart
 
+// dark mode toggle
+var darkModeToggle = document.getElementById('darkModeToggle');
+var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+if (isDarkMode) {
+  document.body.classList.add('dark-mode');
+  if (darkModeToggle) darkModeToggle.textContent = '☀️';
+}
+
+if (darkModeToggle) {
+  darkModeToggle.onclick = function() {
+    document.body.classList.toggle('dark-mode');
+    isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+  };
+}
+
 var cartItems = document.getElementById('cartItems');
 var subEl = document.getElementById('sub');
 var deliveryEl = document.getElementById('delivery');
